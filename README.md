@@ -4,7 +4,7 @@
 
 Minifies a [GROQ-query](https://groq.dev/) by reducing unnecessary whitespace.
 
-_Note:_ This module is not using full GROQ-parser, so it doesn't know where whitespace is "required".
+**Note:** This module is not using full GROQ-parser, so it doesn't know where whitespace is "required".
 Thus, it can only _reduce_ the amount of whitespace, not fully remove it.
 It does however make sure to not minify whitespace inside of GROQ strings.
 
