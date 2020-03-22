@@ -1,0 +1,46 @@
+{
+  "name": "minify-groq",
+  "version": "1.0.0",
+  "description": "Minifies GROQ-queries, removing unnecessary whitespace",
+  "main": "lib/minify-groq.min.js",
+  "types": "./minify-groq.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "posttest": "eslint .",
+    "prebuild": "rimraf lib",
+    "build": "babel src -s inline -d lib",
+    "postbuild": "npm run minify",
+    "minify": "terser --toplevel --source-map \"content=inline,url='minify-groq.min.js.map'\" -c -m -o lib/minify-groq.min.js --ie8 lib/minify-groq.js",
+    "postminify": "node report.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-sanity": "^1.149.0",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.0",
+    "rimraf": "^3.0.2",
+    "terser": "^4.6.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rexxars/minify-groq.git"
+  },
+  "keywords": [
+    "groq",
+    "minify",
+    "query"
+  ],
+  "author": "Espen Hovlandsdal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rexxars/minify-groq/issues"
+  },
+  "homepage": "https://github.com/rexxars/minify-groq#readme"
+}
