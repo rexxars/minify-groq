@@ -1,6 +1,6 @@
 {
   "name": "minify-groq",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Minifies GROQ-queries, removing unnecessary whitespace",
   "main": "lib/minify-groq.js",
   "browser": "lib/minify-groq.min.js",
