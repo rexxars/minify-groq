@@ -1,6 +1,6 @@
 {
   "name": "minify-groq",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Minifies GROQ-queries, removing unnecessary whitespace",
   "main": "lib/minify-groq.js",
   "browser": "lib/minify-groq.min.js",
@@ -15,7 +15,8 @@
     "build": "babel src -s inline -d lib",
     "postbuild": "npm run minify",
     "minify": "terser --toplevel --source-map \"content=inline,url='minify-groq.min.js.map'\" -c -m -o lib/minify-groq.min.js --ie8 lib/minify-groq.js",
-    "postminify": "node report.js"
+    "postminify": "node report.js",
+    "prepublishOnly": "npm run build && npm test"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
