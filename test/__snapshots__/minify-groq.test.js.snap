@@ -15,13 +15,13 @@ exports[`handles full query 1`] = `
 "{
 \\"basic test\\": 'works',
 \\"test \\\\\\"escaped\\\\\\"\\": '\\\\'works\\\\'',
-\\"draft\\": *[_id in path (\\"drafts.**\\")] [ 0 ],
+\\"draft\\": *[_id in path(\\"drafts.**\\")] [ 0 ],
 'it\\\\'s
 	\\"aliased\\"': * [ _type == \\"author\\" ] {
 ... ,
 name,
 \\"cat \\\\\\"C:\\\\test\\\\\\\\\\\\\\"spaced file.txt\\\\\\\\\\\\\\"\\": awards[ @ == \\"Noe  \\\\\\"optimistisk\\\\\\"\\" ]
-} | order ( _createdAt desc ) [ 0 ] [ 0 ... 2 ] ,
+} | order( _createdAt desc ) [ 0 ] [ 0 ... 2 ] ,
 \\"static\\": 'value   
    with spacing'
 }"
@@ -34,12 +34,12 @@ birthYear,
 \\"books\\": books[]->{
 title
 }
-} | order (birthYear asc) | [ 0 ... 50 ]"
+} | order(birthYear asc) | [ 0 ... 50 ]"
 `;
 
 exports[`handles selects, newlined pipes 1`] = `
 "* [ _type == \\"author\\" && birthYear > 1950]
-| order (
+| order(
 birthYear
 asc
 )
@@ -50,9 +50,9 @@ birthYear,
 \\"popularity\\": select(
 popularity > 20 => \\"high\\",
 popularity > 10 => \\"medium\\",
-popularity <= 10 => \\"low\\",
+popularity <= 10 => \\"low\\"
 ),
-\\"books\\": favoriteBooks[]->{
+\\"works\\": works[]->{
 _type == \\"book\\" => {
 title
 },

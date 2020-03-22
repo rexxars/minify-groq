@@ -35,13 +35,13 @@ test('handles full query', () => {
     {
       "basic test": 'works',
       "test \\"escaped\\"": '\\'works\\'',
-      "draft": *[_id in path ("drafts.**")] [ 0 ],
+      "draft": *[_id in path("drafts.**")] [ 0 ],
 
       'it\\'s\n\t"aliased"': * [ _type ==  "author"   ] {
         ... ,
         name,
         "cat \\"C:\\test\\\\\\"spaced file.txt\\\\\\"": awards[ @ == "Noe  \\"optimistisk\\"" ]
-      }  |  order ( _createdAt desc ) [ 0 ]  [ 0  ...  2 ]  ,
+      }  |  order( _createdAt desc ) [ 0 ]  [ 0  ...  2 ]  ,
 
       "static": 'value   \n   with spacing'
     }
@@ -58,7 +58,7 @@ test('handles multiple pipes', () => {
       "books": books[]->{
         title
       }
-    } | order (birthYear asc) | [ 0 ... 50 ]
+    } | order(birthYear asc) | [ 0 ... 50 ]
   `
 
   expect(minify(input)).toMatchSnapshot()
@@ -67,7 +67,7 @@ test('handles multiple pipes', () => {
 test('handles selects, newlined pipes', () => {
   const input = `
   * [ _type == "author" && birthYear > 1950]
-    | order (
+    | order(
       birthYear
       asc
     )
@@ -79,10 +79,10 @@ test('handles selects, newlined pipes', () => {
       "popularity": select(
         popularity > 20 => "high",
         popularity > 10 => "medium",
-        popularity <= 10 => "low",
+        popularity <= 10 => "low"
       ),
 
-      "books": favoriteBooks[]->{
+      "works": works[]->{
         _type == "book" => {
           title
         },
