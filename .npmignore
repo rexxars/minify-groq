@@ -1,0 +1,9 @@
+coverage
+test
+.editorconfig
+.eslintignore
+.eslintrc
+.gitignore
+.prettierrc
+.travis.yml
+report.js

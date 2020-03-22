@@ -61,6 +61,10 @@ console.log(query)
 // *[ _type == "author" && birthYear > 1950] { name, birthYear, "books": books[]->{ title } } | order(birthYear asc) | [0 ... 50]
 ```
 
+## Browser support
+
+Internet Explorer 9 and up!
+
 ## License
 
 MIT licensed. See LICENSE.
